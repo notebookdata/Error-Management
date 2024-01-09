@@ -4,15 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error Search Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        /* Add more styles as needed */
+    </style>
 </head>
 <body>
     <h2>Error Search Result</h2>
-    {% if error %}
-        <p>Error: {{ error[1] }}</p>
-        <p>Platform: {{ error[2] }}</p>
-        <p>Fix: {{ error[3] }}</p>
+
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+                <li>
+                    <p>Error: {{ error[1] }}</p>
+                    <p>Platform: {{ error[2] }}</p>
+                    <p>Fix: {{ error[3] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
     {% else %}
-        <p>Error not found</p>
+        <p>No errors found</p>
     {% endif %}
 </body>
 </html>
