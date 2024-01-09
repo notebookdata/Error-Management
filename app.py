@@ -52,16 +52,17 @@ def search_error():
     try:
         conn = sqlite3.connect(DATABASE)
         cursor = conn.cursor()
+
+        # Use the LIKE operator for partial string matching
         cursor.execute("""
-            SELECT * FROM Errors WHERE ErrorName = ?
-        """, (error_name,))
-        result = cursor.fetchone()
+            SELECT * FROM Errors WHERE ErrorName LIKE ?
+        """, ('%' + error_name + '%',))
+
+        results = cursor.fetchall()
         conn.close()
 
-        if result:
-            return render_template('search_result.html', error=result)
-        else:
-            return render_template('search_result.html', error=None)
+        return render_template('search_result.html', errors=results)
+
     except Exception as e:
         print(f"Error: {e}")
 
