@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Management</title>
+</head>
+<body>
+    <h2>Error Management</h2>
+    <form action="/add_error" method="POST">
+        <label for="error_name">Error Name:</label>
+        <input type="text" id="error_name" name="error_name" required><br>
+
+        <label for="platform">Platform:</label>
+        <input type="text" id="platform" name="platform" required><br>
+
+        <label for="fix_description">Fix Description:</label>
+        <textarea id="fix_description" name="fix_description" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>Search Error</h2>
+    <form action="/search_error" method="POST">
+        <label for="search_error_name">Enter Error Name:</label>
+        <input type="text" id="search_error_name" name="search_error_name" required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
