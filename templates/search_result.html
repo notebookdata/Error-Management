@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Search Result</title>
+</head>
+<body>
+    <h2>Error Search Result</h2>
+    {% if error %}
+        <p>Error: {{ error[1] }}</p>
+        <p>Platform: {{ error[2] }}</p>
+        <p>Fix: {{ error[3] }}</p>
+    {% else %}
+        <p>Error not found</p>
+    {% endif %}
+</body>
+</html>
