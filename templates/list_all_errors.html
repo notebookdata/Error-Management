@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List All Errors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Errors</h2>
+
+    {% if all_errors %}
+        <ul>
+            {% for error in all_errors %}
+                <li>
+                    <p>Error ID: {{ error[0] }}</p>
+                    <p>Error Name: {{ error[1] }}</p>
+                    <p>Platform: {{ error[2] }}</p>
+                    <p>Fix: {{ error[3] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No errors found</p>
+    {% endif %}
+</body>
+</html>
