@@ -66,5 +66,22 @@ def search_error():
     except Exception as e:
         print(f"Error: {e}")
 
+@app.route('/list_all_errors')
+def list_all_errors():
+    try:
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+
+        # Retrieve all errors from the database
+        cursor.execute("SELECT * FROM Errors")
+        all_errors = cursor.fetchall()
+
+        conn.close()
+
+        return render_template('list_all_errors.html', all_errors=all_errors)
+
+    except Exception as e:
+        print(f"Error: {e}")
+
 if __name__ == '__main__':
     app.run(debug=True)
